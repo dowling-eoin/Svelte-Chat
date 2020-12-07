@@ -44,7 +44,7 @@
     "spank": "^1.4.0",
     "spassr": "^2.1.6",
     "svelte": "^3.29.4",
-    "svelte-preprocess": "^4.5.2",
+    "svelte-preprocess": "^4.6.1",
     "tossr": "^1.3.1"
   },
   "routify": {
@@ -71,10 +71,13 @@
     "apollo-client": "^2.6.10",
     "apollo-link-http": "^1.5.17",
     "apollo-server": "^2.19.0",
+    "autoprefixer": "^10.0.4",
     "faker": "^5.1.0",
     "graphql": "^15.4.0",
     "graphql-tag": "^2.11.0",
+    "postcss-nesting": "^7.0.1",
     "react": "^17.0.1",
-    "svelte-apollo": "0.3.0"
+    "svelte-apollo": "0.3.0",
+    "tailwindcss": "^2.0.1"
   }
 }

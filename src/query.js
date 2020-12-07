@@ -7,7 +7,6 @@ export const GET_COMMENTS = gql`
     text
     avatar
     date
-    time
   }
   }
 `;

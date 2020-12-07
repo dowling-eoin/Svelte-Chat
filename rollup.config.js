@@ -11,7 +11,15 @@ import autoPreprocess from 'svelte-preprocess'
 import postcssImport from 'postcss-import'
 import { injectManifest } from 'rollup-plugin-workbox'
 
+/////
 
+import sveltePreprocess from "svelte-preprocess";
+
+//const production = !process.env.ROLLUP_WATCH;
+
+
+
+///////
 const { distDir } = getConfig() // use Routify's distDir for SSOT
 const assetsDir = 'assets'
 const buildDir = `dist/build`
@@ -57,7 +65,18 @@ export default {
                 autoPreprocess({
                     postcss: { plugins: [postcssImport()] },
                     defaults: { style: 'postcss' }
-                })
+                }),
+                sveltePreprocess({
+                    // https://github.com/kaisermann/svelte-preprocess/#user-content-options
+                    sourceMap: !production,
+                    postcss: {
+                        plugins: [
+                            require("tailwindcss"),
+                            require("autoprefixer"),
+                            require("postcss-nesting")
+                        ],
+                    },
+                }),
             ]
         }),
 
