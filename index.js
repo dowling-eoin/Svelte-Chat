@@ -7,6 +7,7 @@ const mocks = {
     }),
 
     Comment: () => ({
+        id: () => faker.random.uuid(),
         text: () => faker.hacker.phrase(),
         name: () => faker.name.firstName(),
         date: () => faker.time.recent(),
@@ -16,6 +17,7 @@ const mocks = {
 
 const typeDefs = gql`
 type Comment {
+id: String!,
 name: String!,
 date: String!,
 text: String!,
