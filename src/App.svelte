@@ -15,4 +15,4 @@
   }
 </style>
 
-<Router {routes}/>
+<Router class="min-h-screen py-6 flex flex-col justify-center" {routes}/>

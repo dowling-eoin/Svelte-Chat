@@ -10,7 +10,7 @@ const mocks = {
         text: () => faker.hacker.phrase(),
         name: () => faker.name.firstName(),
         date: () => faker.time.recent(),
-        avatar: () => faker.image.avatar()
+        avatar: () => faker.image.image()
     }),
 };
 

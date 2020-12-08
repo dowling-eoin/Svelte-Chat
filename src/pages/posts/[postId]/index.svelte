@@ -18,20 +18,21 @@ let name = "My name";
 
 let comments = query(client, {query: GET_COMMENTS});
 
-
+{JSON.stringify($params)}
 </script>
 
-{JSON.stringify($params)}
 
 
-<div>
+
+<div class="grid justify-items-center flex flex-col">
+    <p class="object-top text-center p-6 text-base leading-6 font-medium sm:text-lg sm:leading-7">Comments</p>
 {#await $comments}
         <div>Loading...</div>
 {:then result}
     {#each result.data.allComments as comment (comment.name)}
-        <Comment name={comment.name} text={comment.text} date={comment.date} params={JSON.stringify($params)}/>
+        <Comment name={comment.name} text={comment.text} date={comment.date} avatar={comment.avatar} params={JSON.stringify($params)}/>
     {/each}
-    <AddComment comments={result} name={name} text={text} params={JSON.stringify($params)}/>
+    <AddComment comments={result} name={name} text={text} avatar="http://placeimg.com/640/480/cats" params={JSON.stringify($params)}/>
 {/await}
 </div>
 
