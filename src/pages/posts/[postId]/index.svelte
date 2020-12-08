@@ -1,5 +1,5 @@
 <script>
-    import {params} from "@roxi/routify";
+    import {params, url} from "@roxi/routify";
     import apolloClient from "../../../svelte-apollo";
     import {setClient, getClient, query} from "svelte-apollo";
     import {GET_COMMENTS} from "../../../query.js";
@@ -34,7 +34,6 @@
         {#await $comments}
             <div>Loading...</div>
         {:then result}
-            {result.data.allComments}
             {#each result.data.allComments as comment (comment.id)}
                 <Comment name={comment.name} text={comment.text} date={comment.date} avatar={comment.avatar}/>
             {/each}
