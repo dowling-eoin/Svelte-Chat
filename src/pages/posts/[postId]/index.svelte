@@ -1,6 +1,5 @@
 <script>
     import {params} from "@roxi/routify";
-    import {url} from '@roxi/routify'
     import apolloClient from "../../../svelte-apollo";
     import {setClient, getClient, query} from "svelte-apollo";
     import {GET_COMMENTS} from "../../../query.js";
@@ -8,16 +7,18 @@
     import AddComment from "../../../components/AddComment.svelte";
 
 
+
     setClient(apolloClient);
     const client = getClient();
 
-    let name = "Eoin Dowling";
+    let name = "Eoin";
     let myAvatar = "http://placeimg.com/640/480/cats";
 
     let comments = query(client, {query: GET_COMMENTS});
 
     let upDate = (event, result) => {
         result.data.allComments = [...result.data.allComments, event.detail];
+        comments = query(client, {query: GET_COMMENTS});
     }
 
 </script>
@@ -33,6 +34,7 @@
         {#await $comments}
             <div>Loading...</div>
         {:then result}
+            {result.data.allComments}
             {#each result.data.allComments as comment (comment.id)}
                 <Comment name={comment.name} text={comment.text} date={comment.date} avatar={comment.avatar}/>
             {/each}

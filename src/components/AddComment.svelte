@@ -4,6 +4,7 @@
     export let avatar;
     export let placeholder = "Add the comment here...";
     import {createEventDispatcher} from 'svelte';
+    import {url} from '@roxi/routify';
 
 
     const dispatch = createEventDispatcher();
